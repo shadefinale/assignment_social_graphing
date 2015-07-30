@@ -39,6 +39,8 @@ Fork [the assignment repo](https://github.com/vikingeducation/assignment_social_
 
 **3)** Build a `longest_path` method that goes through all users and finds the two who have the largest number of degrees of separation of any two users in your list. In other words, the two people who are the furthest apart. It should return the whole `path_between` array of Users from one to the other.
 
+**4)** Have your AnalyticsController and form set up to work with this class instead of your original tree.
+
 
 ## Wrapping Up
 
