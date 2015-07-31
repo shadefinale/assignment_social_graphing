@@ -8,7 +8,7 @@ class FriendCrawler
     @root = Node.new(user, [], nil, 1)
   end
 
-  def parse
+  def parse_followed_users
     queue = [@root]
     until queue.empty?
       current = queue.shift
@@ -20,6 +20,27 @@ class FriendCrawler
           queue << c
         end
       end
+    end
+  end
+
+  def distance_to(user)
+    queue = [@root]
+    until queue.empty?
+      current = queue.shift
+      if current.user == user
+        return current.depth - 1
+      elsif current.children && current.children.any?
+        current.children.each do |child|
+          queue << child
+        end
+      end
+    end
+    return nil
+  end
+
+  def print_distances
+    (1..User.count).each do |idx|
+      p self.distance_to(User.find(idx))
     end
   end
 
